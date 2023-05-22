@@ -2,7 +2,7 @@ import User from "../Api";
 import styled from "styled-components";
 
 export default function Heading() {
-  const userData = User();
+  const userData = User({ additionalParam: "" });
 
   return (
     <UserNameContainer>

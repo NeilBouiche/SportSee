@@ -1,22 +1,28 @@
 import { useState, useEffect } from "react";
+import "../src/mock/mock";
 
-export default function User() {
+function fetchData(userId, additionalParam) {
+  if (process.env.NODE_ENV === "development") {
+    return import("./mock/mock").then((data) => data.default);
+  } else if (process.env.NODE_ENV === "production") {
+    let url = `http://localhost:3000/user/${userId}/${additionalParam}`;
+    return fetch(url)
+      .then((res) => res.json())
+      .then((data) => data);
+  }
+}
+
+const User = ({ additionalParam }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    async function fetchData(userId) {
-      let url = `http://localhost:3000/user/${userId}/`;
-      try {
-        let res = await fetch(url);
-        let data = await res.json();
-        setUser(data);
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData(18);
-  }, []);
+    fetchData(18, additionalParam).then((data) => {
+      setUser(data);
+      console.log(data);
+    });
+  }, [additionalParam]);
 
   return user;
-}
+};
+
+export default User;

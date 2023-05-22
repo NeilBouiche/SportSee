@@ -28,7 +28,6 @@ const HeaderContainer = styled.div`
 
 const LogoSportSee = styled.img`
   width: 18rem;
-  height: fit-content;
 `;
 
 const MenuLink = styled.a`
