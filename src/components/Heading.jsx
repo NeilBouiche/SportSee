@@ -1,8 +1,8 @@
-import User from "../Api";
+import useData from "../Api";
 import styled from "styled-components";
 
 export default function Heading() {
-  const userData = User({ additionalParam: "" });
+  const userData = useData({ additionalParam: "" });
 
   return (
     <UserNameContainer>
@@ -15,7 +15,7 @@ export default function Heading() {
 }
 
 const UserNameContainer = styled.div`
-  margin: 20rem 0 10rem 20rem;
+  margin: 20rem 0 0 20rem;
 `;
 
 const HelloName = styled.h1`

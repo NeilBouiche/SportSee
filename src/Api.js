@@ -11,18 +11,17 @@ function fetchData(userId, additionalParam) {
       .then((data) => data);
   }
 }
-
-const User = ({ additionalParam }) => {
+const useData = ({ additionalParam }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     fetchData(18, additionalParam).then((data) => {
       setUser(data);
-      console.log(data);
+      console.log(data.data.sessions);
     });
   }, [additionalParam]);
 
   return user;
 };
 
-export default User;
+export default useData;
