@@ -14,5 +14,6 @@ root.render(
     <VerticalHeader />
     <Heading />
     <ActivityBarGraph />
+    <SessionsLengthGraph />
   </React.StrictMode>
 );
