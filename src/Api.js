@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "../src/mock/mock";
 
-function fetchData(userId, additionalParam) {
+export function fetchData(userId, additionalParam) {
   if (process.env.NODE_ENV === "development") {
     return import("./mock/mock").then((data) => data.default);
   } else if (process.env.NODE_ENV === "production") {
@@ -11,7 +11,7 @@ function fetchData(userId, additionalParam) {
       .then((data) => data);
   }
 }
-const useData = ({ additionalParam }) => {
+export function useData({ additionalParam }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -22,6 +22,6 @@ const useData = ({ additionalParam }) => {
   }, [additionalParam]);
 
   return user;
-};
+}
 
 export default useData;

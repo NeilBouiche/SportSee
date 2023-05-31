@@ -20,7 +20,7 @@ const VerticalContainer = styled.div`
   position: absolute;
   top: 0;
   height: 100%;
-  width: 11.7rem;
+  width: 9rem;
   background-color: black;
   display: flex;
   flex-direction: column;

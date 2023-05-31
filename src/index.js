@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import VerticalHeader from "./components/VerticalHeader";
 import Heading from "./components/Heading";
 import ActivityBarGraph from "./components/ActivityBarGraph";
+import SessionsLengthGraph from "./components/SessionsLengthGraph";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

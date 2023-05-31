@@ -24,3 +24,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.custom-tooltip {
+  background: "#E60000" !important;
+  color: "#ffff" !important;
+  border: "none" !important;
+}

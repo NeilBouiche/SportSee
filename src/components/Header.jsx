@@ -15,7 +15,7 @@ function Header() {
 
 const HeaderContainer = styled.div`
   width: 100%;
-  height: 120px;
+  height: 7rem;
   background-color: black;
   display: flex;
   position: absolute;
@@ -23,7 +23,7 @@ const HeaderContainer = styled.div`
   z-index: 10;
   align-items: center;
   justify-content: space-between;
-  padding: 0 4rem 0 2.8rem;
+  padding: 0 10rem 0 2.8rem;
 `;
 
 const LogoSportSee = styled.img`
@@ -32,7 +32,7 @@ const LogoSportSee = styled.img`
 
 const MenuLink = styled.a`
   text-decoration: none;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 400;
   color: white;
   &:hover {

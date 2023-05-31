@@ -1,14 +1,7 @@
 import { styled } from "styled-components";
-import useData from "../Api";
-import {
-  BarChart,
-  CartesianGrid,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-} from "recharts";
+import { useData } from "../Api";
+import Formatter from "../utils/Formatter";
+import { BarChart, CartesianGrid, Bar, XAxis, YAxis, Tooltip } from "recharts";
 
 export default function ActivityBarGraph() {
   const userData = useData({ additionalParam: "activity" });
@@ -21,32 +14,55 @@ export default function ActivityBarGraph() {
           <LegendItem color="#E60000" label="Calories brûlées (kCal)" />
         </LegendContainer>
       </BarChartInfo>
-      <BarChart width={700} height={300} data={userData?.data.sessions}>
-        <CartesianGrid vertical={false} strokeDasharray="3 3" />
-        <XAxis tickLine={false} dataKey="day" />
-        <YAxis
-          type="number"
-          domain={[68, 71]}
+      <BarChart
+        width={750}
+        height={300}
+        data={userData?.data.sessions.map((session) => ({
+          ...session,
+          day: Formatter.formatDay(session.day),
+        }))}
+      >
+        <CartesianGrid vertical={false} strokeDasharray="3 8" />
+        <XAxis
           tickLine={false}
-          allowDataOverflow={true}
+          dataKey="day"
+          tickMargin={15}
+          axisLine={axisLineStyle}
+          tick={tickstyle}
+        />
+        <YAxis
+          yAxisId="right"
+          type="number"
+          tickMargin={15}
+          tick={tickstyle}
+          domain={["dataMin - 1", "dataMax + 1"]}
+          tickLine={false}
           tickCount={4}
           dataKey="kilogram"
           orientation="right"
           axisLine={false}
         />
-        <Tooltip
-          contentStyle={tooltipStyle}
-          labelStyle={tooltipLabel}
-          itemStyle={tooltipLabelStyle}
+        <YAxis
+          yAxisId="left"
+          type="number"
+          domain={["dataMin - 100", "dataMax + 100"]}
+          hide
+          tickLine={false}
+          tickCount={4}
+          dataKey="calories"
+          orientation="left"
+          axisLine={false}
         />
-
+        <Tooltip content={CustomTooltip} />
         <Bar
+          yAxisId="right"
           dataKey="kilogram"
           fill="#282D30"
           barSize={10}
           radius={[10, 10, 0, 0]}
         />
         <Bar
+          yAxisId="left"
           dataKey="calories"
           fill="#E60000"
           barSize={10}
@@ -66,16 +82,27 @@ function LegendItem({ color, label }) {
   );
 }
 
-// Créer la classe de formatage et ajouter une fonction pour faire passer le champs day afin de ne retourner que le jour.
-
-// Si on garde l'echelle des KG il est normal que les kCal ne soient pas lisibles car trop élevés.
-// Il faut trouver un moyen de scaler. (diviser par 4 dans la classe de formatage ?)
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip" style={tooltipStyle}>
+        <p className="label">{`${payload[0].value} Kg`}</p>
+        <p className="label">{`${payload[1].value} kCal`}</p>
+      </div>
+    );
+  }
+  return null;
+};
 
 // Formater les données du Tooltip pour supprimer le nom d'attribut et le remplacer par son abbv après la valeur.
 
 const ActivityContainer = styled.div`
-  margin: 5rem 0 0 20rem;
+  margin: 3rem 0 0 18rem;
   width: 70rem;
+  background-color: #fbfbfb;
+  padding: 4rem;
+  width: 80rem;
+  border-radius: 1.5rem;
 `;
 
 const BarChartInfo = styled.div`
@@ -115,12 +142,17 @@ const tooltipStyle = {
   backgroundColor: "#E60000",
   color: "#ffff",
   border: "none",
+  padding: "2rem 1rem",
+  display: "flex",
+  flexDirection: "column",
+  gap: "2rem",
 };
 
-const tooltipLabelStyle = {
-  color: "#FFFFFF",
+const tickstyle = {
+  fontSize: "1.4rem",
+  fill: "#9b9eac",
 };
 
-const tooltipLabel = {
-  display: "none",
+const axisLineStyle = {
+  stroke: "lightgray",
 };
