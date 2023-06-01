@@ -15,11 +15,12 @@ export function useData({ additionalParam }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetchData(18, additionalParam).then((data) => {
-      setUser(data);
-      console.log(data.data.sessions);
-    });
-  }, [additionalParam]);
+    if (user === null) {
+      fetchData(18, additionalParam).then((data) => {
+        setUser(data);
+      });
+    }
+  }, [additionalParam, user]);
 
   return user;
 }

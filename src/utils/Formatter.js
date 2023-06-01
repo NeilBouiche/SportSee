@@ -8,4 +8,10 @@ export default class Formatter {
       return days[day - 1];
     }
   }
+  static formatPerf(performanceData) {
+    return Object.entries(performanceData).map(([perf, value]) => ({
+      perf,
+      value,
+    }));
+  }
 }
