@@ -5,20 +5,19 @@ import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
 
 export default function SessionsLengthGraph() {
   const userData = useData({ additionalParam: "average-sessions" });
+  const formattedData = userData?.data[
+    process.env.NODE_ENV === "development" ? "averageSessions" : "sessions"
+  ].map((session) => ({
+    ...session,
+    day: Formatter.formatDayLetter(session.day),
+  }));
   return (
     <SessionsLengthContainer>
       <TitleContainer>
         <SessionGraphTitle>Durée moyenne des</SessionGraphTitle>
         <GraphTitleBis>sessions</GraphTitleBis>
       </TitleContainer>
-      <LineChart
-        width={250}
-        height={220}
-        data={userData?.data.averageSessions.map((session) => ({
-          ...session,
-          day: Formatter.formatDayLetter(session.day),
-        }))}
-      >
+      <LineChart width={250} height={220} data={formattedData}>
         <XAxis
           dataKey="day"
           tickLine={false}

@@ -30,3 +30,8 @@ a {
   color: "#ffff" !important;
   border: "none" !important;
 }
+
+.recharts-polar-angle-axis-tick-value {
+  transform: translateY(0.5rem);
+  transform: translateX(-0.3rem);
+}

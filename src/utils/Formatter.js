@@ -9,9 +9,16 @@ export default class Formatter {
     }
   }
   static formatPerf(performanceData) {
-    return Object.entries(performanceData).map(([perf, value]) => ({
-      perf,
-      value,
-    }));
+    if (process.env.NODE_ENV === "development") {
+      return Object.entries(performanceData).map(([perf, value]) => ({
+        perf: perf.charAt(0).toUpperCase() + perf.slice(1),
+        value,
+      }));
+    } else if (process.env.NODE_ENV === "production") {
+      return performanceData.data.map((data) => ({
+        perf: performanceData.kind[data.kind],
+        value: data.value,
+      }));
+    }
   }
 }

@@ -15,12 +15,10 @@ export function useData({ additionalParam }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    if (user === null) {
-      fetchData(18, additionalParam).then((data) => {
-        setUser(data);
-      });
-    }
-  }, [additionalParam, user]);
+    fetchData(18, additionalParam).then((data) => {
+      setUser(data);
+    });
+  }, [additionalParam]);
 
   return user;
 }

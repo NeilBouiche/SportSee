@@ -11,32 +11,30 @@ import {
 
 export default function PerfoGraph() {
   const userData = useData({ additionalParam: "performance" });
-  const formattedData = Formatter.formatPerf(userData?.data.performance);
-  console.log(formattedData);
-  return <div>{formattedData.toString()}</div>;
-}
-//   return (
-// <PerfoGraphContainer>
-//   <ResponsiveContainer width="100%" height="100%">
-//     <RadarChart outerRadius="80%" data={data}>
-//       <PolarGrid />
-//       <PolarAngleAxis dataKey="perf" />
-//       <Radar
-//         dataKey="value"
-//         stroke="#8884d8"
-//         fill="#8884d8"
-//         fillOpacity={0.6}
-//       />
-//     </RadarChart>
-//   </ResponsiveContainer>
-// </PerfoGraphContainer>
-//   );
-// }
+  const formattedData = userData?.data?.performance
+    ? Formatter.formatPerf(userData.data.performance)
+    : "";
 
-// const PerfoGraphContainer = styled.div`
-//   width: 27rem;
-//   height: 22rem;
-//   background-color: #282d30;
-//   padding: 1rem;
-//   border-radius: 1rem;
-// `;
+  return (
+    <PerfoGraphContainer>
+      <ResponsiveContainer width="100%" height="100%">
+        <RadarChart outerRadius="70%" data={formattedData}>
+          <PolarGrid gridType="polygon" radialLines={false} />
+          <PolarAngleAxis
+            dataKey="perf"
+            tick={{ fill: "white", fontSize: 11 }}
+          />
+          <Radar dataKey="value" stroke="#FF0101B2" fill="#FF0101B2" />
+        </RadarChart>
+      </ResponsiveContainer>
+    </PerfoGraphContainer>
+  );
+}
+
+const PerfoGraphContainer = styled.div`
+  margin-left: 18rem;
+  width: 27rem;
+  height: 26rem;
+  background-color: #282d30;
+  border-radius: 1rem;
+`;
