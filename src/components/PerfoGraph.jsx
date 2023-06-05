@@ -8,12 +8,18 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from "recharts";
+import { isApi } from "../conf";
 
 export default function PerfoGraph() {
   const userData = useData({ additionalParam: "performance" });
-  const formattedData = userData?.data?.performance
-    ? Formatter.formatPerf(userData.data.performance)
-    : "";
+  let formattedData;
+  if (!isApi) {
+    formattedData = userData?.data?.performance
+      ? Formatter.formatPerf(userData.data.performance)
+      : "";
+  } else {
+    formattedData = userData?.data ? Formatter.formatPerf(userData.data) : "";
+  }
 
   return (
     <PerfoGraphContainer>

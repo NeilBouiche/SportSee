@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import "../src/mock/mock";
+import { isApi } from "./conf";
 
 export function fetchData(userId, additionalParam) {
-  if (process.env.NODE_ENV === "development") {
+  if (!isApi) {
     return import("./mock/mock").then((data) => data.default);
-  } else if (process.env.NODE_ENV === "production") {
+  } else {
     let url = `http://localhost:3000/user/${userId}/${additionalParam}`;
     return fetch(url)
       .then((res) => res.json())

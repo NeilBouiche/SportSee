@@ -2,11 +2,12 @@ import { styled } from "styled-components";
 import { useData } from "../Api";
 import Formatter from "../utils/Formatter";
 import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
+import { isApi } from "../conf";
 
 export default function SessionsLengthGraph() {
   const userData = useData({ additionalParam: "average-sessions" });
   const formattedData = userData?.data[
-    process.env.NODE_ENV === "development" ? "averageSessions" : "sessions"
+    !isApi ? "averageSessions" : "sessions"
   ].map((session) => ({
     ...session,
     day: Formatter.formatDayLetter(session.day),
