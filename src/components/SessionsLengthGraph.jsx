@@ -18,7 +18,7 @@ export default function SessionsLengthGraph() {
         <SessionGraphTitle>Durée moyenne des</SessionGraphTitle>
         <GraphTitleBis>sessions</GraphTitleBis>
       </TitleContainer>
-      <LineChart width={250} height={220} data={formattedData}>
+      <LineChart width={240} height={200} data={formattedData}>
         <XAxis
           dataKey="day"
           tickLine={false}
@@ -52,8 +52,8 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 const SessionsLengthContainer = styled.div`
-  width: 27rem;
-  margin: 2rem 18rem 0 18rem;
+  width: 26rem;
+  height: 26rem;
   background-color: #ff0000;
   display: flex;
   justify-content: start;

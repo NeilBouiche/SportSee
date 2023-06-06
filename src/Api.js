@@ -16,7 +16,7 @@ export function useData({ additionalParam }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetchData(18, additionalParam).then((data) => {
+    fetchData(12, additionalParam).then((data) => {
       setUser(data);
     });
   }, [additionalParam]);

@@ -11,7 +11,6 @@ export default class Formatter {
     }
   }
   static formatPerf(performanceData) {
-    console.log(performanceData);
     if (!isApi) {
       return Object.entries(performanceData).map(([perf, value]) => ({
         perf: perf.charAt(0).toUpperCase() + perf.slice(1),
@@ -23,5 +22,17 @@ export default class Formatter {
         value: data.value,
       }));
     }
+  }
+  static formatScore(props) {
+    const score = props?.data.todayScore || props?.data.score;
+    const data = [
+      {
+        name: "Score",
+        uv: score * 100,
+        fill: "#E60000",
+      },
+    ];
+
+    return data;
   }
 }

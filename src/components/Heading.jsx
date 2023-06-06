@@ -15,7 +15,7 @@ export default function Heading() {
 }
 
 const UserNameContainer = styled.div`
-  margin: 12rem 0 0 18rem;
+  margin: 12rem 0 0 14rem;
 `;
 
 const HelloName = styled.h1`

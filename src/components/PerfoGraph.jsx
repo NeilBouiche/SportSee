@@ -28,7 +28,7 @@ export default function PerfoGraph() {
           <PolarGrid gridType="polygon" radialLines={false} />
           <PolarAngleAxis
             dataKey="perf"
-            tick={{ fill: "white", fontSize: 11 }}
+            tick={{ fill: "white", fontSize: 10 }}
           />
           <Radar dataKey="value" stroke="#FF0101B2" fill="#FF0101B2" />
         </RadarChart>
@@ -38,8 +38,7 @@ export default function PerfoGraph() {
 }
 
 const PerfoGraphContainer = styled.div`
-  margin-left: 18rem;
-  width: 27rem;
+  width: 26rem;
   height: 26rem;
   background-color: #282d30;
   border-radius: 1rem;

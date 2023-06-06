@@ -15,7 +15,7 @@ export default function ActivityBarGraph() {
         </LegendContainer>
       </BarChartInfo>
       <BarChart
-        width={750}
+        width={780}
         height={300}
         data={userData?.data.sessions.map((session) => ({
           ...session,
@@ -94,14 +94,11 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
-// Formater les données du Tooltip pour supprimer le nom d'attribut et le remplacer par son abbv après la valeur.
-
 const ActivityContainer = styled.div`
-  margin: 3rem 0 0 18rem;
-  width: 70rem;
+  margin: 3rem 0 0 0;
   background-color: #fbfbfb;
   padding: 4rem;
-  width: 80rem;
+  width: 82rem;
   border-radius: 1.5rem;
 `;
 
