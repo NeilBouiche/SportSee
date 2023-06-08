@@ -16,6 +16,9 @@ export default function Heading() {
 
 const UserNameContainer = styled.div`
   margin: 12rem 0 0 14rem;
+  @media (min-width: 1440px) {
+    margin: 12rem 10% 0 20rem
+  }
 `;
 
 const HelloName = styled.h1`
