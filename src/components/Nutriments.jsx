@@ -20,6 +20,9 @@ const CardContainer = styled.div`
   display: flex;
   padding: 0 3rem 0 3rem;
   align-items: center;
+  @media (min-width: 1440px) {
+    width: 35rem;
+  }
 `;
 
 const CardImg = styled.img`

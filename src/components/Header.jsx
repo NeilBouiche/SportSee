@@ -18,7 +18,7 @@ const HeaderContainer = styled.div`
   height: 7rem;
   background-color: black;
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 10;
   align-items: center;

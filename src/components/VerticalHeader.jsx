@@ -17,7 +17,7 @@ export default function VerticalHeader() {
 }
 
 const VerticalContainer = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   height: 100%;
   width: 9rem;

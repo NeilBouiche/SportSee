@@ -12,6 +12,12 @@ export default function DataContainer() {
 }
 
 const PageContainer = styled.div`
-  margin: 0 10% 0 10%;
+  margin: 0 10% 0 14rem;
   display: flex;
+  @media (max-width: 1250px) {
+    flex-direction: column;
+  }
+  @media (min-width: 1440px) {
+    margin: 0 10% 0 20rem
+  }
 `;

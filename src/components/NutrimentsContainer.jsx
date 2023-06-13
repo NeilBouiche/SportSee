@@ -42,4 +42,11 @@ const NutContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8.4rem;
+  @media (max-width: 1250px) {
+    gap: 1.8rem;
+    flex-direction: row;
+    margin-left: 0;
+    flex-wrap: wrap;
+    width:85rem;
+  }
 `;
