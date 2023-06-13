@@ -35,6 +35,7 @@ export function useData({ additionalParam }) {
   }, [additionalParam]);
 
   if (error) {
+    console.log(error);
     return <div>{error}</div>;
   }
 
