@@ -11,7 +11,6 @@ import {
 export default function ScoreGraph() {
   const userData = useData({ additionalParam: "" });
   const formattedData = Formatter.formatScore(userData);
-  console.log(formattedData);
   return (
     <ScoreGraphContainer>
       <ScoreGraphTitle>{formattedData[0].name}</ScoreGraphTitle>
