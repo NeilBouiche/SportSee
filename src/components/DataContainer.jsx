@@ -18,6 +18,6 @@ const PageContainer = styled.div`
     flex-direction: column;
   }
   @media (min-width: 1440px) {
-    margin: 0 10% 0 20rem
+    margin: 0 10% 0 20rem;
   }
 `;

@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 import { Nutriments } from "./Nutriments";
 import { useData } from "../Api";
-// import Formatter from "../utils/Formatter";
 import CaloriesIcon from "../assets/calories-icon.png";
 import ProteinIcone from "../assets/protein-icon.png";
 import CarbsIcon from "../assets/carbs-icon.png";
@@ -47,6 +46,6 @@ const NutContainer = styled.div`
     flex-direction: row;
     margin-left: 0;
     flex-wrap: wrap;
-    width:85rem;
+    width: 85rem;
   }
 `;
