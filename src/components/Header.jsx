@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import styled from "styled-components";
 
 function Header() {
   return (
     <HeaderContainer>
-      <LogoSportSee src={Logo} alt="SportSee Logo"></LogoSportSee>
+      <Link to={"/"}>
+        <LogoSportSee src={Logo} alt="SportSee Logo"></LogoSportSee>
+      </Link>
       <MenuLink>Accueil</MenuLink>
       <MenuLink>Profil</MenuLink>
       <MenuLink>Réglage</MenuLink>
