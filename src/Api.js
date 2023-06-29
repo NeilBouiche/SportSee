@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "../src/mock/mock";
 import { isApi } from "./conf";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export async function fetchData(userId, additionalParam) {
   if (!isApi) {
