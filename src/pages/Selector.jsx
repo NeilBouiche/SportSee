@@ -10,9 +10,15 @@ const StyledLinks = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-  margin: 0 10px;
+  margin: 0 5rem;
+  padding: 3rem 7rem;
+  font-size: 2rem;
+  color: #e60000;
+  border: 1px solid black;
+  background-color: black;
+  border-radius: 1rem;
   text-decoration: none;
-  color: black;
+  font-weight: bold;
 `;
 
 export default function Selector() {

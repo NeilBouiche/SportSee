@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "../src/mock/mock";
 import { isApi } from "./conf";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export async function fetchData(userId, additionalParam) {
   if (!isApi) {
@@ -30,10 +30,6 @@ export function useData({ additionalParam }) {
   useEffect(() => {
     fetchData(userId, additionalParam).then((data) => {
       setUser(data);
-      if (data?.data.id !== parseInt(userId)) {
-        console.log(data?.data?.id, userId);
-        window.location.href = "/error";
-      }
     });
   }, [additionalParam, userId]);
 
